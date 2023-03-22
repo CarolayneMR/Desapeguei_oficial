@@ -25,3 +25,4 @@ Sistema feito com o intuito de fazer doações de eletrônicos entre os usuário
 * [Eduardo Silvino](https://github.com/Dudu200313)
 * [Ian Elton](https://github.com/ianq1w1)
 * [Mateus Lopes](https://github.com/Mateuslpds)
+* [Suelen Salvino](https://github.com/suelensalvino)
