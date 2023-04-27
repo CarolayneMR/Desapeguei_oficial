@@ -12,5 +12,6 @@ class Objeto extends Model
     protected $fillable = [
         'descricao',
         'tipo',
+        'user_id',
     ];
 }

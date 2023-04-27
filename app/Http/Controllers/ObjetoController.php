@@ -15,7 +15,7 @@ class ObjetoController extends Controller
      */
     public function index()
     {
-        return view('objetos.index');
+        //
     }
 
     /**
@@ -25,7 +25,7 @@ class ObjetoController extends Controller
      */
     public function create()
     {
-        //
+        return view('objetos.create');
     }
 
     /**
@@ -38,10 +38,11 @@ class ObjetoController extends Controller
     {
         Objeto::create([
             'descricao' => $request->descricao,
-            'tipo' => $request->tipo
+            'tipo' => $request->tipo,
+            'user_id' => $request->user()->id
         ]);
 
-        return redirect(route('objetos.index'));
+        return redirect(route('dashboard'));
     }
 
     /**
@@ -75,10 +76,12 @@ class ObjetoController extends Controller
      */
     public function update(Request $request, Objeto $objeto)
     {
+        /*
         $objeto->descricao = $request->descricao;
         $objeto->tipo = $request->tipo;
         $objeto->save();
         return redirect(route('objetos.index'));
+        */
     }
 
     /**
@@ -89,10 +92,12 @@ class ObjetoController extends Controller
      */
     public function destroy(Objeto $objeto)
     {
+        /*
         $objeto->delete();
 
         return redirect(
             route('objetos.index')
         );
+        */
     }
 }

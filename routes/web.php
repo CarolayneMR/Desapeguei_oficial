@@ -27,7 +27,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::resource('/objetos', ObjetoController::class)->except([
-        'create'
-    ]);
+    Route::resource('/objetos', ObjetoController::class);
 });

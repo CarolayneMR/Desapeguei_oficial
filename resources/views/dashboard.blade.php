@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div>
-                <a class="bg-red-500 hover:bg-red-700 font-bold py-2 px-4 rounded" href="/objetos">Doar</a>
+                <a class="bg-red-500 hover:bg-red-700 font-bold py-2 px-4 rounded" href="/objetos/create">Doar</a>
             </div>
         </div>
         

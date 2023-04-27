@@ -15,7 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('descricao');
             $table->string('tipo');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+        });
+
+        Schema::table('objetos', function (Blueprint $table){
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
