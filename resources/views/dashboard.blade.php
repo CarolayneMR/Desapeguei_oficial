@@ -17,7 +17,7 @@
                                 <span>
                                     Descrição: {{ $objeto->descricao }}
                                     -
-                                    Tipo: {{ $objeto->tipo }}
+                                    Tipo: {{ $objeto->tipo_id }}
                                 </span>
                         </div>
                     </div>

@@ -11,17 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('objetos', function (Blueprint $table) {
+        Schema::create('tipos', function (Blueprint $table) {
             $table->id();
             $table->string('descricao');
-            $table->unsignedBigInteger('tipo_id');
-            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-        });
-
-        Schema::table('objetos', function (Blueprint $table){
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('tipo_id')->references('id')->on('tipos')->onDelete('cascade');
         });
     }
 
@@ -30,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('objetos');
+        Schema::dropIfExists('tipos');
     }
 };

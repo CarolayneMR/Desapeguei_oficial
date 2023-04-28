@@ -11,9 +11,13 @@
                 <label for="descricao" :value="__('Objeto descricao')" />
                 <input id="descricao" class="block mt-1 w-full" type="text" name="descricao" required autofocus />
             </div>
-            <div>
+            <div> 
                 <label for="tipo" :value="__('Objeto tipo')" />
-                <input id="tipo" class="block mt-1 w-full" type="text" name="tipo" required autofocus />
+                <select name="tipo" id="tipo">
+                    @foreach (\App\Models\Tipo::all() as $tipo)
+                        <option value="{{ $tipo->id }}">{{ $tipo->descricao }}</option>
+                    @endforeach
+                </select>
             </div>
             <div>
                 <button class="bg-red-500 hover:bg-red-700 font-bold py-2 px-4 rounded">Fazer doação</button>

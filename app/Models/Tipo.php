@@ -5,13 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Objeto extends Model
+class Tipo extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'descricao',
-        'tipo_id',
-        'user_id',
     ];
+
+    public function objetos(){
+        return $this->hasMany(Objeto::class, 'tipo_id');
+    }
 }

@@ -38,7 +38,7 @@ class ObjetoController extends Controller
     {
         Objeto::create([
             'descricao' => $request->descricao,
-            'tipo' => $request->tipo,
+            'tipo_id' => $request->tipo,
             'user_id' => $request->user()->id
         ]);
 
