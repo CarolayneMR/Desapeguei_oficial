@@ -10,7 +10,6 @@
     --->
 
     <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
->>>>>>> 1b41dc2f0e2f7b9951f283e7bcbe0660e9b8ba71
         {{ $slot }}
     </div>
 </div>

@@ -78,12 +78,12 @@ class ObjetoController extends Controller
      */
     public function update(Request $request, Objeto $objeto)
     {
-        /*
+        $objeto->nome = $request->nome;
         $objeto->descricao = $request->descricao;
-        $objeto->tipo = $request->tipo;
+        $objeto->cep = $request->cep;
+        $objeto->tipo_id = $request->tipo;
         $objeto->save();
-        return redirect(route('objetos.index'));
-        */
+        return redirect(route('dashboard'));
     }
 
     /**
@@ -94,12 +94,10 @@ class ObjetoController extends Controller
      */
     public function destroy(Objeto $objeto)
     {
-        /*
         $objeto->delete();
 
         return redirect(
-            route('objetos.index')
+            route('dashboard')
         );
-        */
     }
 }
