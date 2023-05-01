@@ -10,7 +10,9 @@ class Objeto extends Model
     use HasFactory;
 
     protected $fillable = [
+        'nome',
         'descricao',
+        'cep',
         'tipo_id',
         'user_id',
     ];

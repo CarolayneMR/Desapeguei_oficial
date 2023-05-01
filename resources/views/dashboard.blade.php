@@ -12,15 +12,19 @@
                 <h1>Uns objeto aí</h1>
                 <div class="flex flex-col gap-2">
                 @foreach (\App\Models\Objeto::all() as $objeto)
-                    <div class="bg-gray-300 grid grid-cols-8 text-center p-2 relative">
-                        <div class="col-span-6 text-left">
-                                <span>
-                                    Descrição: {{ $objeto->descricao }}
-                                    -
-                                    Tipo: {{ $objeto->tipo_id }}
-                                </span>
+                    @if ($objeto->user_id == auth()->id())
+                        <div class="bg-gray-300 grid grid-cols-8 text-center p-2 relative">
+                            <div class="col-span-6 text-left">
+                                    <span>
+                                        Nome: {{ $objeto->nome }}
+                                        -
+                                        Descrição: {{ $objeto->descricao }}
+                                        -
+                                        CEP: {{ $objeto->cep }}
+                                    </span>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 @endforeach
                 </div>
             </div>

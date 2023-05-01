@@ -37,7 +37,9 @@ class ObjetoController extends Controller
     public function store(Request $request)
     {
         Objeto::create([
+            'nome' => $request->nome,
             'descricao' => $request->descricao,
+            'cep' => $request->cep,
             'tipo_id' => $request->tipo,
             'user_id' => $request->user()->id
         ]);

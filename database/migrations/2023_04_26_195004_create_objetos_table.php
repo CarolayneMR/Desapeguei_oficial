@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('objetos', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
             $table->string('descricao');
+            $table->string('cep');
             $table->unsignedBigInteger('tipo_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
