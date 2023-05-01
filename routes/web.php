@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ObjetoController;
+use App\Http\Controllers\AgendaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::middleware([
+Route::get('/agendamento/agenda', function () {
+    return view('agendamento.agenda');
+});Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
@@ -28,4 +30,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('/objetos', ObjetoController::class);
+   
 });

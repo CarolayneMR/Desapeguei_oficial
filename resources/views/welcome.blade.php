@@ -44,6 +44,23 @@
             <button
                 class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 border border-blue-700 rounded"">SAIBA
                 MAIS</button>
+                <div>
+                    @foreach (\App\Models\Objeto::all() as $objeto)
+                    <span>
+                        {{ $objeto->nome }}
+                        -
+                        {{ $objeto->descricao }}
+                        -
+                        {{ $objeto->cep }}
+                        -
+                        {{ $objeto->tipo_id }}
+                        <button>
+                    <a href="{{ url('/agendamento/agenda') }}">
+                                REALIZAR AGENDAMENTO 
+                        </button>    
+                    </span>
+                    @endforeach
+                </div>
         </div>
     </main>
 </body>

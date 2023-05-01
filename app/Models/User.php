@@ -66,4 +66,7 @@ class User extends Authenticatable
     public function objetos(){
         return $this->hasMany(Objeto::class, 'user_id');
     }
+    public function destinatario(){
+        return $this->hasMany(Agenda::class, 'usuarioDest_id');
+    }
 }
