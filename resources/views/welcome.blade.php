@@ -31,36 +31,48 @@
     </div>
     @endif
     <main>
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-            <h1 class="font-bold text-2xl">
+        <div class="relative">
+            <img class="absolute inset-y-2 right-20 w-4/12"
+                src="https://raw.githubusercontent.com/CarolayneMR/Desapeguei-v2/536ae531434fad856abcbbac047830a064144c11/resources/views/assets/img/comp-fundo-blue.png"
+                alt="Computadores empilhados">
+        </div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-28 col-start-1 col-end-7">
+            <h1 class="font-bold text-5xl">
                 <span class="text-blue-500">Doar</span>
                 ou
                 <span class="text-blue-500">Reciclar</span>
-                eletrônicos preserva nossos recursos naturais.
+                eletrônicos
+                <br>
+                preserva nossos recursos
+                <br>
+                naturais.
             </h1>
-            <p class="text-xl">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                unknown printer
-                took a galley of type and scrambled it to make a type specimen book.</p>
+            <p class="text-2xl">Lorem Ipsum has been the industry's standard dummy text
+                <br>
+                ever since the 1500s, when an unknown printer took a
+                <br>
+                galley of type and scrambled it to make a type specimen book.
+            </p>
             <button
-                class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 border border-blue-700 rounded"">SAIBA
+                class="bg-blue-500 hover:bg-blue-600 text-black font-bold py-2 px-4 border border-blue-700 rounded">SAIBA
                 MAIS</button>
-                <div>
-                    @foreach (\App\Models\Objeto::all() as $objeto)
-                    <span>
-                        {{ $objeto->nome }}
-                        -
-                        {{ $objeto->descricao }}
-                        -
-                        {{ $objeto->cep }}
-                        -
-                        {{ $objeto->tipo_id }}
-                        <button>
-                    <a href="{{ url('/agendamento/agenda') }}">
-                                REALIZAR AGENDAMENTO 
-                        </button>    
-                    </span>
-                    @endforeach
-                </div>
+        </div>
+        <div>
+            @foreach (\App\Models\Objeto::all() as $objeto)
+                <span>
+                    {{ $objeto->nome }}
+                    -
+                    {{ $objeto->descricao }}
+                    -
+                    {{ $objeto->cep }}
+                    -
+                    {{ $objeto->tipo_id }}
+                    <button>
+                        <a href="{{ url('/agendamento/agenda') }}">
+                            REALIZAR AGENDAMENTO
+                    </button>
+                </span>
+            @endforeach
         </div>
     </main>
 </body>
