@@ -16,6 +16,7 @@ class Objeto extends Model
         'tipo_id',
         'user_id',
     ];
+    
     public function agendamentos(){
         return $this->hasMany(Agenda::class, 'objeto_id');
     }

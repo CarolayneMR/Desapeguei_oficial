@@ -68,8 +68,7 @@
                     -
                     {{ $objeto->tipo_id }}
                     <button>
-                        <a href="{{ url('/agendamento/agenda') }}">
-                            REALIZAR AGENDAMENTO
+                        <a href="/objetos/{{ $objeto->id }}">Realizar agendamento</a>
                     </button>
                 </span>
             @endforeach

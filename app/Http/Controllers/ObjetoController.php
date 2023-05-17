@@ -53,9 +53,11 @@ class ObjetoController extends Controller
      * @param  \App\Models\Objeto  $objeto
      * @return \Illuminate\Http\Response
      */
-    public function show(Objeto $objeto)
+    public function show($id)
     {
-        //
+        $objeto = Objeto::find($id);
+
+        return view('objetos.show')->with('objeto', $objeto);
     }
 
     /**

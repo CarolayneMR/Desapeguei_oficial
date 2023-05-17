@@ -20,7 +20,9 @@ Route::get('/', function () {
 });
 Route::get('/agendamento/agenda', function () {
     return view('agendamento.agenda');
-});Route::middleware([
+});
+
+Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
@@ -30,5 +32,5 @@ Route::get('/agendamento/agenda', function () {
     })->name('dashboard');
 
     Route::resource('/objetos', ObjetoController::class);
-   
+    Route::post('agendamentos/{objeto}', [AgendaController::class, 'store'])->name('agendamentos.store');
 });

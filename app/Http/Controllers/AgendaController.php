@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Objeto;
+use App\Models\Agenda;
 
 class AgendaController extends Controller
 {
@@ -12,15 +13,15 @@ class AgendaController extends Controller
         return view('agendamento.agenda');
     }
 
-    public function Store(Objeto $objeto, Request $request){
-        $doador = $objeto->user();
+    public function store(Request $request, $id){
+        $objeto = Objeto::find($id);
 
         Agenda::create([
-        'data' =>$request->data,
-        'usuarioDest_id' =>$request->user()->usuarioDest_id,
-        'usuarioDoar_id' =>$request->$doador->usuarioDoar_id,
-        'objeto_id' =>$request->$objeto->objeto_id,
-        'status' =>$request->status
+            'data' => $request->data,
+            'usuarioDest_id' => $request->user()->id,
+            'usuarioDoar_id' => $objeto->user_id,
+            'objeto_id' => $objeto->id,
+            'status' => 'aberto'
         ]);
 
         return redirect(route('dashboard'));
