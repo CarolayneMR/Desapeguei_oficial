@@ -3,7 +3,7 @@
     <div class="bg-blue-500">
         <div class="font-bold text-5xl m-6 flex">
             <img src="https://i.ibb.co/5kL227w/dummy-60x60-ffffff-cccccc-x.png">
-            <div class="ml-5">Desapeguei!</div>
+            <div class="ml-5 mt-5">Desapeguei!</div>
         </div>
 
         <img class="m-auto" src="https://raw.githubusercontent.com/CarolayneMR/Desapeguei-v2/536ae531434fad856abcbbac047830a064144c11/resources/views/assets/img/caixa-eletronicos.png" alt="Uma caixa com varios objetos eletronicos dentro.">
@@ -29,22 +29,22 @@
 
                 <div>
                     <x-label for="name" value="{{ __('Nome completo') }}" />
-                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Insira seu nome" />
+                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Insira seu nome" maxlength="50"/>
                 </div>
 
                 <div class="mt-4">
                     <x-label for="email" value="{{ __('Email') }}" />
-                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" placeholder="seu@email.com" />
+                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" placeholder="seu@email.com" maxlength="50" />
                 </div>
 
                 <div class="mt-4">
                     <x-label for="cpf" value="{{ __('CPF') }}" />
-                    <x-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" :value="old('cpf')" required autofocus autocomplete="cpf" placeholder="Insira seu CPF" />
+                    <x-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" :value="old('cpf')" required autofocus autocomplete="cpf" placeholder="Insira seu CPF" maxlength="11"/>
                 </div>
 
                 <div class="mt-4">
                     <x-label for="phone" value="{{ __('Telefone') }}" />
-                    <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" placeholder="(99) 99999-9999" />
+                    <x-input id="phone" class="block mt-1 w-full" type="tel" name="phone" :value="old('phone')" required autofocus autocomplete="phone" placeholder="(99) 99999-9999" />
                 </div>
 
                 <div class="grid grid-cols-2 gap-4 mt-4">
