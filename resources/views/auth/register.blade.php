@@ -2,7 +2,7 @@
 
     <div class="bg-blue-500">
         <div class="font-bold text-5xl m-6 flex">
-            <img src="https://i.ibb.co/5kL227w/dummy-60x60-ffffff-cccccc-x.png">
+            <img src="https://github.com/CarolayneMR/Desapeguei-v2/blob/main/resources/views/assets/img/dzin.png?raw=true">
             <div class="ml-5 mt-5">Desapeguei!</div>
         </div>
 
