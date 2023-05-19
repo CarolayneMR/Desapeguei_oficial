@@ -20,4 +20,8 @@ class Objeto extends Model
     public function agendamentos(){
         return $this->hasMany(Agenda::class, 'objeto_id');
     }
+
+    public function tipos(){
+        return $this->belongsTo(Tipo::class, 'tipo_id');
+    }
 }
