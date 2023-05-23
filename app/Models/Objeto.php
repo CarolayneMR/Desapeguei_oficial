@@ -12,6 +12,7 @@ class Objeto extends Model
     protected $fillable = [
         'nome',
         'descricao',
+        'imagem',
         'cep',
         'tipo_id',
         'user_id',

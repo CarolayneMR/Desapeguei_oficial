@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('descricao');
+            $table->string('imagem');
             $table->string('cep');
             $table->unsignedBigInteger('tipo_id');
             $table->unsignedBigInteger('user_id');

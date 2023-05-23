@@ -36,9 +36,20 @@ class ObjetoController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->hasFile('imagem') && $request->file('imagem')->isValid()){
+            $requestImage = $request->imagem;
+            
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now") . "." . $extension);
+
+            $requestImage->move(public_path('img/objetos'), $imageName);
+        }
+
         Objeto::create([
             'nome' => $request->nome,
             'descricao' => $request->descricao,
+            'imagem' => $imageName,
             'cep' => $request->cep,
             'tipo_id' => $request->tipo,
             'user_id' => $request->user()->id

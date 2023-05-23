@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="max-w-5xl m-auto mt-2 p-2">
-        <form action="{{ route('objetos.store') }}" method="POST">
+        <form action="{{ route('objetos.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div>
                 <x-label for="nome" :value="__('Nome')" />
@@ -14,6 +14,10 @@
             <div>
                 <x-label for="descricao" :value="__('Descrição')" />
                 <input id="descricao" class="block mb-2 w-full" type="text" name="descricao" required autofocus />
+            </div>
+            <div>
+                <x-label for="imagem" :value="__('Imagem')" />
+                <input id="imagem" class="block mb-2 w-full" type="file" name="imagem" required autofocus >
             </div>
             <div>
                 <x-label for="cep" :value="__('CEP')" />

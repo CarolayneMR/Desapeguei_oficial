@@ -24,6 +24,8 @@
                                         {{ $objeto->cep }}
                                         -
                                         {{ $objeto->tipos->descricao }}
+                                        
+                                        <img src="/img/objetos/{{ $objeto->imagem }}" alt="Imagem do objeto">
                                     </span>
                                 </template>
                                 <template x-if="editMode">
