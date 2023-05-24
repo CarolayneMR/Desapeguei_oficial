@@ -32,4 +32,12 @@ class AgendaController extends Controller
         $agenda->save();
         return redirect(route('dashboard'));
     }
+    public function destroy(Agenda $agenda)
+    {
+        $agenda->delete();
+
+        return redirect(
+            route('dashboard')
+        );
+    }
 }

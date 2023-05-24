@@ -90,7 +90,19 @@
                                 </template>
                                 @endforeach
                         
-        </div>                       
+        </div> 
+        <div class="cursor-pointer hover:bg-red-700 hover:text-white">
+                      @foreach (\App\Models\Agenda::all() as $agenda)
+                                <form 
+                                    action="{{ route('agenda.destroy', $agenda) }}" 
+                                    method="POST" 
+                                >
+                                    @csrf
+                                    @method('DELETE')
+                                    <button>Excluir</button>
+                                </form>
+                                @endforeach
+                            </div>               
       </div>
     </div>
 </x-app-layout>
