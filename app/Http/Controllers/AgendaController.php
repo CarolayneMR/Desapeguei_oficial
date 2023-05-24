@@ -26,4 +26,10 @@ class AgendaController extends Controller
 
         return redirect(route('dashboard'));
     }
+    public function update(Request $request, Agenda $agenda)
+    {
+        $agenda->data = $request->data;
+        $agenda->save();
+        return redirect(route('dashboard'));
+    }
 }
