@@ -15,7 +15,9 @@ class ObjetoController extends Controller
      */
     public function index()
     {
-        //
+        $objeto = Objeto::all();
+
+        return view('objetos.index');
     }
 
     /**
