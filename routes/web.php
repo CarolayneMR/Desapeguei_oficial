@@ -33,4 +33,6 @@ Route::middleware([
 
     Route::resource('/objetos', ObjetoController::class);
     Route::post('agendamentos/{objeto}', [AgendaController::class, 'store'])->name('agendamentos.store');
+
+    Route::resource('agenda', AgendaController::class);
 });
