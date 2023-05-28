@@ -8,6 +8,13 @@ use App\Models\Agenda;
 
 class AgendaController extends Controller
 {
+    public function index()
+    {
+        $agenda = Agenda::all();
+
+        return view('agendamento.index');
+    }
+
     public function create()
     {
         return view('agendamento.agenda');
