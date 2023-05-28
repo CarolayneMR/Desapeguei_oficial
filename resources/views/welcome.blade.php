@@ -57,22 +57,6 @@
                 class="bg-blue-500 hover:bg-blue-600 text-black font-bold py-2 px-4 border border-blue-700 rounded">SAIBA
                 MAIS</button>
         </div>
-        <div>
-            @foreach (\App\Models\Objeto::all() as $objeto)
-                <span>
-                    {{ $objeto->nome }}
-                    -
-                    {{ $objeto->descricao }}
-                    -
-                    {{ $objeto->cep }}
-                    -
-                    {{ $objeto->tipo_id }}
-                    <button>
-                        <a href="/objetos/{{ $objeto->id }}">Realizar agendamento</a>
-                    </button>
-                </span>
-            @endforeach
-        </div>
     </main>
 </body>
 
