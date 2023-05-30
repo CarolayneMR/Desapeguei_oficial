@@ -15,11 +15,6 @@ class AgendaController extends Controller
         return view('agendamento.index');
     }
 
-    public function create()
-    {
-        return view('agendamento.agenda');
-    }
-
     public function store(Request $request, $id){
         $objeto = Objeto::find($id);
 
@@ -31,20 +26,18 @@ class AgendaController extends Controller
             'status' => 'aberto'
         ]);
 
-        return redirect(route('dashboard'));
+        return redirect(route('agendamento.index'));
     }
     public function update(Request $request, Agenda $agenda)
     {
         $agenda->data = $request->data;
         $agenda->save();
-        return redirect(route('dashboard'));
+        return redirect(route('agendamento.index'));
     }
     public function destroy(Agenda $agenda)
     {
         $agenda->delete();
 
-        return redirect(
-            route('dashboard')
-        );
+        return redirect(route('agendamento.index'));
     }
 }

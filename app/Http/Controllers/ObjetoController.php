@@ -57,7 +57,7 @@ class ObjetoController extends Controller
             'user_id' => $request->user()->id
         ]);
 
-        return redirect(route('dashboard'));
+        return redirect(route('objetos.index'));
     }
 
     /**
@@ -93,12 +93,23 @@ class ObjetoController extends Controller
      */
     public function update(Request $request, Objeto $objeto)
     {
+        if($request->hasFile('imagem') && $request->file('imagem')->isValid()){
+            $requestImage = $request->imagem;
+            
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now") . "." . $extension);
+
+            $requestImage->move(public_path('img/objetos'), $imageName);
+        }
+
         $objeto->nome = $request->nome;
         $objeto->descricao = $request->descricao;
+        $objeto->imagem = $imageName;
         $objeto->cep = $request->cep;
         $objeto->tipo_id = $request->tipo;
         $objeto->save();
-        return redirect(route('dashboard'));
+        return redirect(route('objetos.index'));
     }
 
     /**

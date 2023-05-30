@@ -8,7 +8,6 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <!--<x-welcome />-->
                 <div class="flex flex-col gap-2">
                 @foreach (\App\Models\Objeto::all() as $objeto)
                     @if ($objeto->user_id == auth()->id())
@@ -31,11 +30,13 @@
                                     <form 
                                         action="{{ route('objetos.update', $objeto) }}" 
                                         method="POST" 
+                                        enctype="multipart/form-data"
                                     >
                                         @csrf
                                         @method('PUT')
                                         <input class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="text" name="nome" value="{{ $objeto->nome }}" />
                                         <input class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="text" name="descricao" value="{{ $objeto->descricao }}" />
+                                        <input type="file" id="imagem" name="imagem">
                                         <input class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="text" name="cep" value="{{ $objeto->cep }}" />
                                         <select class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="tipo" id="tipo">
                                             @foreach (\App\Models\Tipo::all() as $tipo)
