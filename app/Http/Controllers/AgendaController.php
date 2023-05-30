@@ -26,18 +26,18 @@ class AgendaController extends Controller
             'status' => 'aberto'
         ]);
 
-        return redirect(route('agendamento.index'));
+        return redirect(route('agenda.index'));
     }
     public function update(Request $request, Agenda $agenda)
     {
         $agenda->data = $request->data;
         $agenda->save();
-        return redirect(route('agendamento.index'));
+        return redirect(route('agenda.index'));
     }
     public function destroy(Agenda $agenda)
     {
         $agenda->delete();
 
-        return redirect(route('agendamento.index'));
+        return redirect(route('agenda.index'));
     }
 }
