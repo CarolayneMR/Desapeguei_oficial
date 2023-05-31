@@ -8,27 +8,27 @@
         <form action="{{ route('objetos.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
-                <label class="block text-black text-sm font-medium mb-2" for="nome">Nome:</label>
+                <label class="font-medium mb-2" for="nome">Nome:</label>
                 <input class="text-sm rounded-lg w-full p-2.5 bg-gray-100 border-blue-500" id="nome" type="text"
                     name="nome" placeholder="Nome do objeto" required autofocus />
             </div>
             <div class="mb-6">
-                <label class="block text-black text-sm font-medium mb-2" for="descricao">Descrição:</label>
+                <label class="font-medium mb-2" for="descricao">Descrição:</label>
                 <input class="text-sm rounded-lg w-full p-2.5 bg-gray-100 border-blue-500" id="descricao" type="text"
                     name="descricao" placeholder="Descrição do objeto" required autofocus />
             </div>
             <div class="mb-6">
-                <label class="block text-black text-sm font-medium mb-2" for="imagem">Selecione uma imagem</label>
+                <label class="font-medium mb-2" for="imagem">Selecione uma imagem</label>
                 <input class="text-sm rounded-lg w-full p-2.5 border cursor-pointer bg-gray-100 border-blue-500"
                     id="imagem" type="file" name="imagem" required autofocus>
             </div>
             <div class="mb-6">
-                <label class="block text-black text-sm font-medium mb-2" for="cep">CEP:</label>
+                <label class="font-medium mb-2" for="cep">CEP:</label>
                 <input class="text-sm rounded-lg w-full p-2.5 bg-gray-100 border-blue-500" id="cep" type="text"
                     name="cep" placeholder="Ex: 00000-000" required autofocus />
             </div>
             <div class="mb-6">
-                <label class="block text-black text-sm font-medium mb-2" for="tipo">Selecione o tipo do objeto</label>
+                <label class="font-medium mb-2" for="tipo">Selecione o tipo do objeto</label>
                 <select class="text-sm rounded-lg w-full p-2.5 bg-gray-100 border-blue-500" name="tipo"
                     id="tipo">
                     @foreach (\App\Models\Tipo::all() as $tipo)
