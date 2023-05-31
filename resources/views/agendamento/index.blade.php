@@ -56,6 +56,9 @@
                             </form>
                         </template>
                     </div>
+                    
+
+                    
                     <template x-if="!editMode">
                         <div class="cursor-pointer hover:bg-gray-700 hover:text-white" @click="editMode = true">
                             Editar
@@ -74,6 +77,12 @@
                         </form>
                     </div>
                 </div>
+                <form action="{{ route('agenda.updateStatus', $agenda) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    
+                    <button type="submit">confirmar envio</button>
+                </form>
                 @endif
                 @endforeach
             </div>

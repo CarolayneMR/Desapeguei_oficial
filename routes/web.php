@@ -35,4 +35,5 @@ Route::middleware([
     Route::post('agendamentos/{objeto}', [AgendaController::class, 'store'])->name('agendamentos.store');
 
     Route::resource('agenda', AgendaController::class);
+    Route::put('agenda', [AgendaController::class, 'updateStatus'])->name('agenda.updateStatus');
 });

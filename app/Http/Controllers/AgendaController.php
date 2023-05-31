@@ -34,6 +34,15 @@ class AgendaController extends Controller
         $agenda->save();
         return redirect(route('agenda.index'));
     }
+
+
+    public function updateStatus( Agenda $agenda)
+    {
+        $agenda->status = "em andamento";
+        $agenda->save();
+        return redirect(route('agenda.index'));
+    }
+
     public function destroy(Agenda $agenda)
     {
         $agenda->delete();
