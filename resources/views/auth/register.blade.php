@@ -1,9 +1,9 @@
 <div class="grid grid-cols-2 gap-0 m-auto">
 
     <div class="bg-blue-500">
-        <div class="font-bold text-5xl m-6 flex">
-            <img src="https://github.com/CarolayneMR/Desapeguei-v2/blob/main/resources/views/assets/img/dzin.png?raw=true">
-            <div class="ml-5 mt-5">Desapeguei!</div>
+        <div class="font-bold text-5xl m-5 flex">
+            <img class="h-20 w-20" src="https://raw.githubusercontent.com/CarolayneMR/Desapeguei-v2/7ace94c4ef6f5ebfcc9c5050e02d0419f4215662/resources/views/assets/img/logo-desapeguei.png">
+            <div class="ml-5 m-auto">Desapeguei!</div>
         </div>
 
         <img class="m-auto" src="https://raw.githubusercontent.com/CarolayneMR/Desapeguei-v2/536ae531434fad856abcbbac047830a064144c11/resources/views/assets/img/caixa-eletronicos.png" alt="Uma caixa com varios objetos eletronicos dentro.">
