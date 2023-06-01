@@ -25,6 +25,12 @@
                         </template>
                     </div>
                 </div>
+                <form action="{{ route('agenda.updateStatus', $agenda) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                     <!-- criar aqui um x-data pra esse botão do confirmar recebimento sumir dps q for pressionado-->
+                    <button type="submit">confirmar recebimento</button>
+                </form>
                 @endif
                 @endforeach
             </div>
@@ -77,6 +83,7 @@
                         </form>
                     </div>
                 </div>
+                <!-- criar aqui um x-data pra esse botão do confirmar envio sumir dps q for pressionado-->
                 <form action="{{ route('agenda.updateStatus', $agenda) }}" method="POST">
                     @csrf
                     @method('PUT')

@@ -36,9 +36,13 @@ class AgendaController extends Controller
     }
 
 
-    public function updateStatus( Agenda $agenda)
+    public function updateStatus(Request $request, Agenda $agenda)
     {
+        
         $agenda->status = "em andamento";
+        if($agenda->usuarioDest_id == $request->user()->id){
+            $agenda->status = "entregue";
+        }
         $agenda->save();
         return redirect(route('agenda.index'));
     }
