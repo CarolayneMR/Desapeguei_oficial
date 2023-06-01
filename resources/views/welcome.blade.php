@@ -7,13 +7,16 @@
     @vite('resources/css/app.css')
 
     <title>Desapeguei</title>
-
 </head>
 
 <body class="antialiased py-8">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 font-bold">
-        <nav class="relative z-50 sm:top-0 flex justify-between text-xl">
-            <h1>Desapeguei!</h1>
+        <nav class="relative z-50 sm:top-0 flex justify-between text-xl">       
+            <div class="flex justify-between">
+                <img class="h-14 w-14" src="https://raw.githubusercontent.com/CarolayneMR/Desapeguei-v2/7ace94c4ef6f5ebfcc9c5050e02d0419f4215662/resources/views/assets/img/logo-desapeguei.png">
+                <h1 class="pl-3 m-auto text-3xl">Desapeguei!</h1>
+            </div>
+
             @if (Route::has('login'))
                 <div class="">
                     @auth
@@ -24,7 +27,7 @@
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}"
-                                class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Cadastre-se</a>
+                                class="ml-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow">Cadastre-se</a>
                         @endif
                     @endauth
         </nav>
@@ -47,14 +50,14 @@
                 <br>
                 naturais.
             </h1>
-            <p class="text-2xl">Lorem Ipsum has been the industry's standard dummy text
+            <p class="mt-5 text-2xl">Lorem Ipsum has been the industry's standard dummy text
                 <br>
                 ever since the 1500s, when an unknown printer took a
                 <br>
                 galley of type and scrambled it to make a type specimen book.
             </p>
             <button
-                class="bg-blue-500 hover:bg-blue-600 text-black font-bold py-2 px-4 border border-blue-700 rounded">SAIBA
+                class="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 border border-blue-700 rounded">SAIBA
                 MAIS</button>
         </div>
     </main>
