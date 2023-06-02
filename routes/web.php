@@ -36,4 +36,5 @@ Route::middleware([
 
     Route::resource('agenda', AgendaController::class);
     Route::put('agenda/{agenda}/status', [AgendaController::class, 'updateStatus'])->name('agenda.updateStatus');
+
 });
