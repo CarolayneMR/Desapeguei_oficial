@@ -4,6 +4,7 @@ use App\Http\Controllers\ObjetoController;
 use App\Http\Controllers\AgendaController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +39,5 @@ Route::middleware([
     Route::put('agenda/{agenda}/status', [AgendaController::class, 'updateStatus'])->name('agenda.updateStatus');
 
 });
+
+Route::view('/esqueceu_senha', 'esqueceu_senha');

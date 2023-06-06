@@ -56,6 +56,8 @@
                     {{ session('status') }}
                 </div>
                 @endif
+
+                
             
             </x-authentication-card>
         </x-guest-layout>
