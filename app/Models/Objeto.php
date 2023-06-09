@@ -25,4 +25,7 @@ class Objeto extends Model
     public function tipos(){
         return $this->belongsTo(Tipo::class, 'tipo_id');
     }
+    public function usuarioDoador(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

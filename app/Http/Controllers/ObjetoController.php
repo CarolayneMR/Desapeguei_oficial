@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Objeto;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ObjetoController extends Controller
 {
@@ -17,7 +18,12 @@ class ObjetoController extends Controller
     {
         $objeto = Objeto::all();
 
+       /* $objetos = Objeto::join('users', 'objetos.user_id', '=', 'users.user_id')
+            ->select('objetos.*', 'users.name as doadornome')
+            ->get();*/
+        
         return view('objetos.index');
+
     }
 
     /**
