@@ -129,7 +129,7 @@ class ObjetoController extends Controller
         $objeto->delete();
 
         return redirect(
-            route('dashboard')
+            route('objetos.index')
         );
     }
 }
