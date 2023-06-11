@@ -12,19 +12,6 @@
 
                 <x-section-border />
             @endif
-            <div >
-                <h3>objetos doados(agendamentos feitos)</h3>
-            @foreach (\App\Models\Objeto::all() as $objeto)
-            <div>
-                <p>
-                    aqui era pra ter alguma coisa, dps fazemos 
-                </p>
-
-
-            </div>
-            
-            @endforeach
-            </div>
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
                 <div class="mt-10 sm:mt-0">

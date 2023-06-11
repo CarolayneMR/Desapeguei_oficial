@@ -4,7 +4,7 @@
             {{ __('Meus agendamentos') }}
         </h2>
     </x-slot>
-
+    <div>
     <div class="py-12">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <!--<x-welcome />-->
@@ -21,6 +21,8 @@
                                 {{ $agenda->data }}
                                 -
                                 {{ $agenda->status }}
+                                -
+                                {{$agenda->doadores->nome}}
                             </span>
                         </template>
                     </div>

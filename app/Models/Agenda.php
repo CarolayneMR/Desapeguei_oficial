@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Agenda extends Model
 {
     use HasFactory;
-    protected $table = "agenda";
+    protected $table = "agendas";
     
     protected $fillable = [
         'data',
@@ -17,14 +17,14 @@ class Agenda extends Model
         'objeto_id',
         'status',
     ];
-
+    public function objetos(){
+        return $this->belongsTo(Objeto::class, 'objeto_id');
+    }
 
     public function destinatarioAGENDA(){
         return $this->hasMany(User::class, 'usuarioDest_id');
     }
-    public function doadorid(){
-        return $this->hasMany(Objeto::class, 'usuarioDoar_id');
-    }
+
     public function objetoAgenda(){
         return $this->hasMany(Objeto::class, 'objeto_id');
     }
