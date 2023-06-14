@@ -57,50 +57,82 @@
                                     </div>
                                 </span>
                             </template>
-                            <template x-if="editMode">
-                                <form action="{{ route('objetos.update', $objeto) }}" method="POST"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    @method('PUT')
-                                    <input
-                                        class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                                        type="text" name="nome" value="{{ $objeto->nome }}" />
-                                    <input
-                                        class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                                        type="text" name="descricao" value="{{ $objeto->descricao }}" />
-                                    <input type="file" id="imagem" name="imagem">
-                                    <input
-                                        class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                                        type="text" name="cep" value="{{ $objeto->cep }}" />
-                                    <select
-                                        class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                                        name="tipo" id="tipo">
-                                        @foreach (\App\Models\Tipo::all() as $tipo)
-                                            <option value="{{ $tipo->id }}">{{ $tipo->descricao }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    <button>Salvar</button>
-                                </form>
-                            </template>
-                        </div>
-                        <template x-if="editMode">
-                            <div class="cursor-pointer" @click="editMode = false">
-                                Cancelar
+                            <div x-show="editMode"
+                                class="absolute top-0 bottom-0 left-0 right-0 bg-gray-900 bg-opacity-20 z-0">
+                                <div class="md:w-96 bg-white p-4 relative rounded-lg left-1/3 right-1/3 top-1/4 z-50">
+                                    <button type="button" @click="editMode = false"
+                                        class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                        data-modal-toggle="editModal">
+                                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="sr-only">Fechar</span>
+                                    </button>
+                                    <h3 class="text-lg font-medium text-black">Atualize as informações!
+                                    </h3>
+                                    <form action="{{ route('objetos.update', $objeto) }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="py-1">
+                                            <label class="font-medium mb-2" for="nome">Nome:</label>
+                                            <input class="text-sm rounded-lg w-full p-2.5 bg-gray-100 border-blue-500"
+                                                type="text" name="nome" value="{{ $objeto->nome }}" />
+                                        </div>
+                                        <div class="py-1">
+                                            <label class="font-medium mb-2" for="descricao">Descrição:</label>
+                                            <input class="text-sm rounded-lg w-full p-2.5 bg-gray-100 border-blue-500"
+                                                type="text" name="descricao" value="{{ $objeto->descricao }}" />
+                                        </div>
+                                        <div class="py-1">
+                                            <label class="font-medium mb-2" for="imagem">Selecione uma imagem</label>
+                                            <input class="text-sm rounded-lg w-full p-2.5 bg-gray-100 border-blue-500"
+                                                type="file" id="imagem" name="imagem">
+                                        </div>
+                                        <div class="py-1">
+                                            <label class="font-medium mb-2" for="cep">CEP:</label>
+                                            <input class="text-sm rounded-lg w-full p-2.5 bg-gray-100 border-blue-500"
+                                                type="text" name="cep" value="{{ $objeto->cep }}" />
+                                        </div>
+                                        <div class="py-1">
+                                            <label class="font-medium mb-2" for="tipo">Selecione o tipo do
+                                                objeto</label>
+                                            <select class="text-sm rounded-lg w-full p-2.5 bg-gray-100 border-blue-500"
+                                                name="tipo" id="tipo">
+                                                @foreach (\App\Models\Tipo::all() as $tipo)
+                                                    <option value="{{ $tipo->id }}">{{ $tipo->descricao }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="py-1">
+                                            <button
+                                                class="w-full py-2 px-3 text-sm font-medium text-center text-white bg-green-600 rounded-lg hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-900">Salvar</button>
+                                        </div>
+                                    </form>
+                                    <div class="py-1">
+                                        <button
+                                            class="w-full py-2 px-3 text-sm font-medium text-gray-800 bg-transparent rounded-lg border border-gray-500 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                                            @click="editMode = false">Cancelar</button>
+                                    </div>
+                                </div>
                             </div>
-                        </template>
+                        </div>
                         <div x-show="showDelete"
                             class="absolute top-0 bottom-0 left-0 right-0 bg-gray-900 bg-opacity-20 z-0">
                             <div class="md:w-96 bg-gray-800 p-4 absolute left-1/3 right-1/3 top-1/4 z-50">
-                                <form class="py-2 w-full text-center" action="{{ route('objetos.destroy', $objeto) }}"
-                                    method="POST">
+                                <form class="py-2 w-full text-center"
+                                    action="{{ route('objetos.destroy', $objeto) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="button" @click="showDelete = false"
                                         class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                                         data-modal-toggle="deleteModal">
-                                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
+                                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"
                                                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                                                 clip-rule="evenodd"></path>
@@ -114,7 +146,8 @@
                                             d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
                                             clip-rule="evenodd"></path>
                                     </svg>
-                                    <p class="mb-4 text-gray-500 dark:text-gray-300">Tem certeza que deseja excluir este
+                                    <p class="mb-4 text-gray-500 dark:text-gray-300">Tem certeza que deseja excluir
+                                        este
                                         objeto?</p>
                                     <button @click="showDelete = true"
                                         class="w-full py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">Sim,
