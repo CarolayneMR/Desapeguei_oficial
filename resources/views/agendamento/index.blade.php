@@ -5,24 +5,30 @@
         </h2>
     </x-slot>
     <div>
-    <div class="py-12">
+    <div class="py-12" x-data="{ statusFilter: '' }">
+        <label for="statusFilter">Filtrar agendamentos por status:</label>
+        <select x-model="statusFilter" name="statusFilter" id="statusFilter">
+            <option value="" >Sem filtro</option>
+            <option value="aberto">Aberto</option>
+            <option value="em andamento">Em andamento</option>
+            <option value="entregue">Entregue</option>
+        </select>
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-            <!--<x-welcome />-->
             <h1>Seus agendamentos solicitados</h1>
             <div class="flex flex-col gap-2">
                 @foreach (\App\Models\Agenda::all() as $agenda)
                 @if ($agenda->usuarioDest_id == auth()->id())
-                <div class="bg-gray-300 grid grid-cols-8 text-center p-2 relative" x-data="{ editMode: false }">
+                <div class="bg-gray-300 grid grid-cols-8 text-center p-2 relative">
                     <div class="col-span-6 text-left">
-                        <template x-if="!editMode">
-                            <span>
+                        <template x-if="statusFilter == '' || statusFilter == '{{ $agenda->status }}'">
+                            <span >
                                 {{ $agenda->objetos->nome }}
                                 -
                                 {{ $agenda->data }}
                                 -
-                                {{ $agenda->status }}
+                                {{$agenda->doadores->name}}
                                 -
-                                {{$agenda->doadores->nome}}
+                                {{ $agenda->status }}
                             </span>
                         </template>
                     </div>
@@ -44,13 +50,15 @@
             <div class="flex flex-col gap-2">
                 @foreach (\App\Models\Agenda::all() as $agenda)
                 @if ($agenda->usuarioDoar_id == auth()->id())
-                <div class="bg-gray-300 grid grid-cols-8 text-center p-2 relative" x-data="{ editMode: false }">
+                <div x-show="statusFilter == '' || statusFilter == '{{ $agenda->status }}'" class="bg-gray-300 grid grid-cols-8 text-center p-2 relative" x-data="{ editMode: false }">
                     <div class="col-span-6 text-left">
                         <template x-if="!editMode">
                             <span>
                                 {{ $agenda->objetos->nome }}
                                 -
                                 {{ $agenda->data }}
+                                -
+                                {{ $agenda->destinatarios->name }}
                                 -
                                 {{ $agenda->status }}
                             </span>
@@ -64,8 +72,6 @@
                             </form>
                         </template>
                     </div>
-                    
-
                     
                     <template x-if="!editMode">
                         <div class="cursor-pointer hover:bg-gray-700 hover:text-white" @click="editMode = true">
