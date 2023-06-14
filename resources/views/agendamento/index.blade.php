@@ -18,7 +18,7 @@
             <div class="flex flex-col gap-2">
                 @foreach (\App\Models\Agenda::all() as $agenda)
                 @if ($agenda->usuarioDest_id == auth()->id())
-                <div class="bg-gray-300 grid grid-cols-8 text-center p-2 relative">
+                <div x-data="{ editMode: false }" class="bg-gray-300 grid grid-cols-8 text-center p-2 relative">
                     <div class="col-span-6 text-left">
                         <template x-if="statusFilter == '' || statusFilter == '{{ $agenda->status }}'">
                             <span >
@@ -31,6 +31,31 @@
                                 {{ $agenda->status }}
                             </span>
                         </template>
+                        <template x-if="editMode">
+                            <form action="{{ route('agenda.update', $agenda) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="text" name="data" value="{{ $agenda->data }}" />
+                                <button>Salvar</button>
+                            </form>
+                        </template>
+                    </div>
+                    <template x-data=" {status: '{{ $agenda->status }}' }" x-if="!editMode && status != 'entregue'">
+                        <div class="cursor-pointer hover:bg-gray-700 hover:text-white" @click="editMode = true">
+                            Editar
+                        </div>
+                    </template>
+                    <template x-if="editMode">
+                        <div class="cursor-pointer hover:bg-gray-700 hover:text-white" @click="editMode = false">
+                            Cancelar
+                        </div>
+                    </template>
+                    <div x-data=" {status: '{{ $agenda->status }}' }" x-show="status != 'entregue'" class="cursor-pointer hover:bg-red-700 hover:text-white">
+                        <form action="{{ route('agenda.destroy', $agenda) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button>Excluir</button>
+                        </form>
                     </div>
                 </div>
                 <form x-data=" {status: '{{ $agenda->status }}' }" x-show="status != 'entregue'" action="{{ route('agenda.updateStatus', $agenda) }}" method="POST">
@@ -63,26 +88,7 @@
                                 {{ $agenda->status }}
                             </span>
                         </template>
-                        <template x-if="editMode">
-                            <form action="{{ route('agenda.update', $agenda) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <input class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="text" name="data" value="{{ $agenda->data }}" />
-                                <button>Salvar</button>
-                            </form>
-                        </template>
                     </div>
-                    
-                    <template x-data=" {status: '{{ $agenda->status }}' }" x-if="!editMode && status != 'entregue'">
-                        <div class="cursor-pointer hover:bg-gray-700 hover:text-white" @click="editMode = true">
-                            Editar
-                        </div>
-                    </template>
-                    <template x-if="editMode">
-                        <div class="cursor-pointer hover:bg-gray-700 hover:text-white" @click="editMode = false">
-                            Cancelar
-                        </div>
-                    </template>
                     <div x-data=" {status: '{{ $agenda->status }}' }" x-show="status != 'entregue'" class="cursor-pointer hover:bg-red-700 hover:text-white">
                         <form action="{{ route('agenda.destroy', $agenda) }}" method="POST">
                             @csrf
