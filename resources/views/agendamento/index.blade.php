@@ -33,7 +33,7 @@
                         </template>
                     </div>
                 </div>
-                <form action="{{ route('agenda.updateStatus', $agenda) }}" method="POST">
+                <form x-data=" {status: '{{ $agenda->status }}' }" x-show="status != 'entregue'" action="{{ route('agenda.updateStatus', $agenda) }}" method="POST">
                     @csrf
                     @method('PUT')
                      <!-- criar aqui um x-data pra esse botão do confirmar recebimento sumir dps q for pressionado-->
@@ -73,7 +73,7 @@
                         </template>
                     </div>
                     
-                    <template x-if="!editMode">
+                    <template x-data=" {status: '{{ $agenda->status }}' }" x-if="!editMode && status != 'entregue'">
                         <div class="cursor-pointer hover:bg-gray-700 hover:text-white" @click="editMode = true">
                             Editar
                         </div>
@@ -83,7 +83,7 @@
                             Cancelar
                         </div>
                     </template>
-                    <div class="cursor-pointer hover:bg-red-700 hover:text-white">
+                    <div x-data=" {status: '{{ $agenda->status }}' }" x-show="status != 'entregue'" class="cursor-pointer hover:bg-red-700 hover:text-white">
                         <form action="{{ route('agenda.destroy', $agenda) }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <!-- criar aqui um x-data pra esse botão do confirmar envio sumir dps q for pressionado-->
-                <form action="{{ route('agenda.updateStatus', $agenda) }}" method="POST">
+                <form x-data=" {status: '{{ $agenda->status }}' }" x-show="status != 'entregue'" action="{{ route('agenda.updateStatus', $agenda) }}" method="POST">
                     @csrf
                     @method('PUT')
                     
