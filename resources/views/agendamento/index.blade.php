@@ -6,6 +6,9 @@
     </x-slot>
     <div>
     <div class="py-12" x-data="{ statusFilter: '' }">
+        @if($errors->any())
+                <h4 class="bg-red-600 text-white">{{$errors->first()}}</h4>
+        @endif
         <label for="statusFilter">Filtrar agendamentos por status:</label>
         <select x-model="statusFilter" name="statusFilter" id="statusFilter">
             <option value="" >Sem filtro</option>

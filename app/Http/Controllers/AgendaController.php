@@ -26,10 +26,9 @@ class AgendaController extends Controller
                 'objeto_id' => $objeto->id,
                 'status' => 'aberto'
             ]);
-        
-        return redirect(route('agenda.index'));
+            return redirect(route('agenda.index'));
         }else{
-            echo "irmao tu nao pode doar pra si mesmo vacilao";
+            return redirect(route('agenda.index'))->withErrors(['msg' => 'Não é possível realizar um agendamento para se mesmo. Burro!']);;
         }
     }
     public function update(Request $request, Agenda $agenda)
