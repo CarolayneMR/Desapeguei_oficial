@@ -111,7 +111,9 @@ class ObjetoController extends Controller
 
         $objeto->nome = $request->nome;
         $objeto->descricao = $request->descricao;
-        $objeto->imagem = $imageName;
+        if($request->hasFile('imagem')){
+            $objeto->imagem = $imageName;
+        }
         $objeto->cep = $request->cep;
         $objeto->tipo_id = $request->tipo;
         $objeto->save();
