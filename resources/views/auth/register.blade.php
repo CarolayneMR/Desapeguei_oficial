@@ -8,7 +8,17 @@
 
         <img class="m-auto" src="https://raw.githubusercontent.com/CarolayneMR/Desapeguei-v2/536ae531434fad856abcbbac047830a064144c11/resources/views/assets/img/caixa-eletronicos.png" alt="Uma caixa com varios objetos eletronicos dentro.">
     </div>
-
+      
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 <x-guest-layout>
         <x-authentication-card>
             <div>

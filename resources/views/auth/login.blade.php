@@ -9,17 +9,29 @@
     </div>
 
     <x-guest-layout>
+
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
         <x-authentication-card>
             <x-slot name="logo">
                 <x-authentication-card-logo />
-            </x-slot> 
-            <div class="flex justify-center items-center"  style="height: 380px; width: 400px;">
+            </x-slot>
+
+            <div class="flex justify-center items-center" style="height: 380px; width: 400px;">
                 <form class="items-center w-80" method="POST" action="{{ route('login') }}">
                     @csrf
                     <h1 class="text-center font-bold mb-5 text-2xl">Mantenha-se conectado!</h1>
                     <div class="mb-4">
                         <x-label for="email" value="{{ __('Email') }}" />
-                        <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Insira seu email"/>
+                        <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Insira seu email" />
                     </div>
 
                     <div class="mb-6">
@@ -39,13 +51,13 @@
                             {{ __('Entrar') }}
                         </button>
                     </div>
-                    
+
                     <div class="flex items-center justify-center mt-4">
                         @if (Route::has('password.request'))
                         <a class="underline text-sm text-gray-600 dark:text-gray-500 hover:text-gray-900 dark:hover:text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
                             {{ __('Esqueceu a senha?') }}
                         </a>
-                        @endif    
+                        @endif
                     </div>
                 </form>
 
@@ -57,9 +69,9 @@
                 </div>
                 @endif
 
-                
-            
-            </x-authentication-card>
-        </x-guest-layout>
-    </div>
+
+
+        </x-authentication-card>
+    </x-guest-layout>
+</div>
 </div>

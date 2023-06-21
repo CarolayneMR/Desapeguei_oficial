@@ -10,6 +10,17 @@
 </head>
 
 <body class="antialiased py-8">
+    
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 font-bold">
         <nav class="relative z-50 sm:top-0 flex justify-between text-xl">       
             <div class="flex justify-between">

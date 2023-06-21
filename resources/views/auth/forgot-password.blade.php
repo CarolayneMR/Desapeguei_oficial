@@ -8,6 +8,17 @@
 
             <img class="m-auto" src="https://raw.githubusercontent.com/CarolayneMR/Desapeguei-v2/main/resources/views/assets/img/reset-password.png" alt="Um cadeado .">
         </div>
+        
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
         <x-authentication-card>
 
             <x-slot name="logo">
