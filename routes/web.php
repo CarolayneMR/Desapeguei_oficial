@@ -32,6 +32,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
+    Route::get('/pesquisa', [ObjetoController::class, 'pesquisa'])->name('objetos.pesquisa');
     Route::resource('/objetos', ObjetoController::class);
     Route::post('agendamentos/{objeto}', [AgendaController::class, 'store'])->name('agendamentos.store');
 

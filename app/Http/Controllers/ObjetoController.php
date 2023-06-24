@@ -14,18 +14,24 @@ class ObjetoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $objeto = Objeto::all();
-
+    
+        return view('objetos.index'); 
+    }
+    
+    public function pesquisa(Request $request)
+    {
+        $search = $request->input('search');
+        $objetos = Objeto::where('nome', 'LIKE', "%".$search."%")
+            ->get();
+    
+        return view('pesquisa', compact('objetos', 'search')); 
        /* $objetos = Objeto::join('users', 'objetos.user_id', '=', 'users.user_id')
             ->select('objetos.*', 'users.name as doadornome')
-            ->get();*/
-        
-        return view('objetos.index');
-
+            ->get();*/;
     }
-
     /**
      * Show the form for creating a new resource.
      *
