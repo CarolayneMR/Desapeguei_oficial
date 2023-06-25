@@ -39,14 +39,6 @@
         <script>
             new window.VLibras.Widget('https://vlibras.gov.br/app');
         </script>
-        <div>
-            <form method="GET" action="{{route('objetos.pesquisa')}}">
-                @csrf
-                <input type="text" name="search" placeholder="Pesquise aqui...">
-                <button type="submit"> pesquisar
-            </form>
-        
-        </div>
 
         <h1 class="pl-10 pb-2 text-3xl font-semibold text-gray-400">Descubra</h1>
         <div class="py-2 px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
@@ -76,7 +68,7 @@
                                 <b>Tipo do objeto:</b> {{ $objeto->tipos->descricao }}
                                 <br>
                             </p>
-                            <div class="flex flex-col items-center">
+                            <div>
                                 <a href="/objetos/{{ $objeto->id }}"
                                     class="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                         Realizar agendamento
