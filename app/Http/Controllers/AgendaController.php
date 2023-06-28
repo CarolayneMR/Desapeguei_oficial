@@ -26,9 +26,9 @@ class AgendaController extends Controller
                 'objeto_id' => $objeto->id,
                 'status' => 'aberto'
             ]);
-            return redirect(route('agenda.index'));
+            return redirect(route('agenda.index'))->with('msg', 'Agendamento realizado com sucesso.');
         }else{
-            return redirect(route('agenda.index'))->withErrors(['msg' => 'Não é possível realizar um agendamento para se mesmo. Burro!']);;
+            return redirect(route('agenda.index'))->withErrors(['msg' => 'Não é possível realizar um agendamento para si mesmo.']);;
         }
     }
     public function update(Request $request, Agenda $agenda)
@@ -54,6 +54,6 @@ class AgendaController extends Controller
     {
         $agenda->delete();
 
-        return redirect(route('agenda.index'));
+        return redirect(route('agenda.index'))->with('msg', 'Agendamento excluído com sucesso.');
     }
 }

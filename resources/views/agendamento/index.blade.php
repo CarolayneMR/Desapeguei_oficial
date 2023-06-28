@@ -7,6 +7,9 @@
     <!--Agendamentos da pessoa-->
     <div>
         <div class="py-8" x-data="{ statusFilter: '' }">
+            @if (session('msg'))
+                <h4 class="bg-green-600 text-white">{{ session('msg') }}</h4>
+            @endif
             @if ($errors->any())
                 <h4 class="bg-red-600 text-white">{{ $errors->first() }}</h4>
             @endif

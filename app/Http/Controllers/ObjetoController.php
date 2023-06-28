@@ -123,7 +123,7 @@ class ObjetoController extends Controller
         $objeto->cep = $request->cep;
         $objeto->tipo_id = $request->tipo;
         $objeto->save();
-        return redirect(route('objetos.index'));
+        return redirect(route('objetos.index'))->with('msg', 'Informações do objeto atualizadas com sucesso.');
     }
 
     /**
@@ -136,8 +136,6 @@ class ObjetoController extends Controller
     {
         $objeto->delete();
 
-        return redirect(
-            route('objetos.index')
-        );
+        return redirect(route('objetos.index'))->with('msg', 'Objeto excluído com sucesso.');
     }
 }
