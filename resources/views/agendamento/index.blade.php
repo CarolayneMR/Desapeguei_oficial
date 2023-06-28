@@ -23,12 +23,13 @@
                     <option value="entregue">Entregue</option>
                 </select>
             </div>
-            <div class="py-6 px-8">
+            <div x-data="{ existeAgenda: false }" class="py-6 px-8">
                 <h1 class="text-xl font-bold text-blue-500">Agendamentos solicitados</h1>
                 <div class="flex flex-col gap-2">
+                    
                     @foreach (\App\Models\Agenda::all() as $agenda)
                         @if ($agenda->usuarioDest_id == auth()->id())
-                            <div x-data="{ editMode: false, showDelete: false }" class="">
+                            <div x-model="existeAgenda = true" x-data="{ editMode: false, showDelete: false }" class="">
                                 <div class="">
                                     <template x-if="statusFilter == '' || statusFilter == '{{ $agenda->status }}'">
                                         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -186,17 +187,18 @@
                             </div>
                         @endif
                     @endforeach
+                    <div x-show="existeAgenda == false">Você não solicitou nenhum agendamento ainda</div>
                 </div>
             </div>
 
             <!--Solicitações de agendamentos-->
             <div class="py-4 px-8">
                 <h1 class="text-xl font-bold text-blue-500">Solicitação de agendamentos</h1>
-                <div class="flex flex-col gap-2">
+                <div x-data="{ existeAgenda: false }" class="flex flex-col gap-2">
                     @foreach (\App\Models\Agenda::all() as $agenda)
                         @if ($agenda->usuarioDoar_id == auth()->id())
-                            <div x-data="{ editMode: false" class="">
-                                <div class="">
+                            <div class="">
+                                <div x-model="existeAgenda = true" class="">
                                     <template x-if="statusFilter == '' || statusFilter == '{{ $agenda->status }}'">
                                         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                                             <table class="w-full text-sm text-left">
@@ -278,6 +280,7 @@
                                 </div>
                         @endif
                     @endforeach
+                    <div x-show="existeAgenda == false">Não há nenhuma solicitação de agendamento para seus objetos.</div>
                 </div>
             </div>
         </div>

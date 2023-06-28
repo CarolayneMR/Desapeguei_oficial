@@ -9,10 +9,10 @@
         @if (session('msg'))
             <h4 class="bg-green-600 text-white">{{ session('msg') }}</h4>
         @endif
-        <div class="px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+        <div x-data="{ existeObj: false }" class="px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
             @foreach (\App\Models\Objeto::all() as $objeto)
                 @if ($objeto->user_id == auth()->id())
-                    <div x-data="{ editMode: false, showDelete: false }">
+                    <div x-model="existeObj = true" x-data="{ editMode: false, showDelete: false }">
                         <div>
                             <template x-if="!editMode">
                                 <span>
@@ -163,6 +163,7 @@
                     </div>
                 @endif
             @endforeach
+            <div x-show="existeObj == false">Você não possui objetos.</div>
         </div>
     </div>
 </x-app-layout>
