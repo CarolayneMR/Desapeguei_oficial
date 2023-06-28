@@ -17,12 +17,21 @@
     </div>
 </div>
 
-    <div class="py-8">
-
+    <div class="py-8" x-data="{ typeFilter: '' }">
         <h1 class="pl-10 pb-2 text-3xl font-semibold text-gray-400">Descubra</h1>
+        <div class="px-8">
+            <select
+                class="py-3 px-4 pr-9 block w-100 border-blue-500 rounded-full text-sm focus:border-blue-500 focus:ring-blue-500"
+                x-model="typeFilter" name="typeFilter" id="typeFilter">
+                <option value="">Clique aqui para filtrar os objetos por tipo</option>
+                @foreach (\App\Models\Tipo::all() as $tipo)
+                    <option value="{{ $tipo->id }}">{{ $tipo->descricao }}</option>
+                @endforeach
+            </select>
+        </div>
         <div class="py-2 px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
             @foreach (\App\Models\Objeto::all() as $objeto)
-                <span>
+                <span x-show="typeFilter == '' || typeFilter == '{{ $objeto->tipo_id }}'">
                     <div
                         class="max-w-sm py-2 bg-white border border-gray-200 rounded-lg shadow hover:-translate-y-1 hover:scale-105 duration-300">
                         <a href="" class="px-2 ml-2 font-regular text-gray-900">
