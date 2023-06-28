@@ -28,7 +28,7 @@ class AgendaController extends Controller
             ]);
             return redirect(route('agenda.index'))->with('msg', 'Agendamento realizado com sucesso.');
         }else{
-            return redirect(route('agenda.index'))->withErrors(['msg' => 'Não é possível realizar um agendamento para si mesmo.']);;
+            return redirect(route('agenda.index'))->withErrors(['msg' => 'Não é possível agendar o seu próprio objeto.']);;
         }
     }
     public function update(Request $request, Agenda $agenda)
