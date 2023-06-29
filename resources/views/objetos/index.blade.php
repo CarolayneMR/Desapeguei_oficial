@@ -7,31 +7,30 @@
 
     <div class="py-12">
         @if (session('msg'))
-        <div class="flex p-4 mb-4 text-sm text-white rounded-lg bg-green-600" role="alert">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span class="px-1 font-bold text-base">
-                {{ session('msg') }}
-            </span>
-        </div>
-    @endif
-        <div x-data="{ existeObj: false }" class="px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+            <div class="flex p-4 mb-4 text-sm text-white rounded-lg bg-green-600" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span class="px-1 font-bold text-base">
+                    {{ session('msg') }}
+                </span>
+            </div>
+        @endif
+        <div x-data="{ existeObj: false }"
+            class="px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
             @foreach (\App\Models\Objeto::all() as $objeto)
                 @if ($objeto->user_id == auth()->id())
                     <div x-model="existeObj = true" x-data="{ editMode: false, showDelete: false }">
                         <div>
                             <template x-if="!editMode">
                                 <span>
-                                    <div
-                                        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                         <img class="md:w-full" src="/img/objetos/{{ $objeto->imagem }}"
                                             alt="Imagem do objeto" />
                                         </a>
                                         <div class="p-5">
-                                            <h5
-                                                class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
                                                 {{ $objeto->nome }} </h5>
                                             <p class="mb-3 font-normal text-gray-700">
                                                 Descrição: {{ $objeto->descricao }}
@@ -171,7 +170,11 @@
                     </div>
                 @endif
             @endforeach
-            <div x-show="existeObj == false">Você não possui objetos.</div>
+            <div x-show="existeObj == false" class="px-8 font-medium text-gray-500 text-lg">Você não possui objetos.
+                <span class=" text-blue-500">
+                    <a href="/objetos/create">Clique aqui para realizar uma doação!</a>
+                </span>
+            </div>
         </div>
     </div>
 </x-app-layout>

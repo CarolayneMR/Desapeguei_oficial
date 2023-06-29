@@ -204,7 +204,7 @@
                             </div>
                         @endif
                     @endforeach
-                    <div x-show="existeAgenda == false">Você não solicitou nenhum agendamento ainda</div>
+                    <div x-show="existeAgenda == false" class="font-medium text-gray-500">Você não solicitou nenhum agendamento ainda.</div>
                 </div>
             </div>
 
@@ -297,7 +297,7 @@
                                 </div>
                         @endif
                     @endforeach
-                    <div x-show="existeAgenda == false">Não há nenhuma solicitação de agendamento para seus objetos.</div>
+                    <div x-show="existeAgenda == false" class="font-medium text-gray-500">Não há nenhuma solicitação de agendamento para seus objetos.</div>
                 </div>
             </div>
         </div>
