@@ -1,7 +1,8 @@
 <x-app-layout>
     <div class="py-12">
         <h2 class="py-2 px-8 text-gray-500 text-2xl">Aqui estão os resultados da sua busca:</h2>
-        <div x-data= "{ existePesq: false }" class="py-2 px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+        <div x-data="{ existePesq: false }"
+            class="py-2 px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
             @foreach ($objetos as $objeto)
                 <span x-model="existePesq = true">
                     <div
@@ -45,10 +46,11 @@
                     </div>
                 </span>
             @endforeach
-              <span x-show="existePesq == false">
-
-                <h3 class="py-2 px-8 text-red-500 text-2xl">Este objeto "{{$search}}" está indisponível ou não existe</h2>
-                </span>
         </div>
+        <div x-show="existePesq == false" class="px-8">
+            <h2 class="text-gray-400 text-lg">
+                Desculpe, não encontramos nenhum resultado para "{{ $search }}", tente pesquisar outra coisa.
+            </h2>
+    </div>
     </div>
 </x-app-layout>
