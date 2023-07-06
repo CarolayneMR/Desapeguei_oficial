@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="py-12">
+    <div class="py-12" x-data="{ existePesq: false }">
         <h2 class="py-2 px-8 text-gray-500 text-2xl">Aqui estão os resultados da sua busca:</h2>
-        <div x-data="{ existePesq: false }"
-            class="py-2 px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+        <div class="py-2 px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
             @foreach ($objetos as $objeto)
+                @if ($objeto->agendamentos->where('status', 'entregue')->count() == 0)
                 <span x-model="existePesq = true">
                     <div
                         class="max-w-sm py-2 bg-white border border-gray-200 rounded-lg shadow hover:-translate-y-1 hover:scale-105 duration-300">
@@ -45,12 +45,13 @@
                         </div>
                     </div>
                 </span>
+                @endif
             @endforeach
         </div>
         <div x-show="existePesq == false" class="px-8">
             <h2 class="text-gray-400 text-lg">
                 Desculpe, não encontramos nenhum resultado para "{{ $search }}", tente pesquisar outra coisa.
             </h2>
-    </div>
+        </div>
     </div>
 </x-app-layout>

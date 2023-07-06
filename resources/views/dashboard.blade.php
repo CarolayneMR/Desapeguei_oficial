@@ -35,6 +35,7 @@
 
         <div class="py-2 px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
             @foreach (\App\Models\Objeto::all() as $objeto)
+                @if ($objeto->agendamentos->where('status', 'entregue')->count() == 0)
                 <span x-show="typeFilter == '' || typeFilter == '{{ $objeto->tipo_id }}'">
                     <div
                         class="max-w-sm py-2 bg-white border border-gray-200 rounded-lg shadow hover:-translate-y-1 hover:scale-105 duration-300">
@@ -75,6 +76,7 @@
                         </div>
                     </div>
                 </span>
+                @endif
             @endforeach
         </div>
     </div>
