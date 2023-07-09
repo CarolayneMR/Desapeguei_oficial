@@ -18,7 +18,8 @@
                     --->
                     <span class="text-2xl text-center bg-slate-100 w-full">Você está <b>agendando</b> o seguinte objeto: </span>
                 </div>
-                    <hr>
+                <img class="md:w-full" src="/img/objetos/{{ $objeto->imagem }}"
+                                            alt="Imagem do objeto" />
                 <h1 class="text-3xl font-bold items-center text-center font-mono text-blue-600 pt-2 cursor-pointer">{{ $objeto->nome }}</h1>
 
                 <div class="max-w-xl m-auto mt-2 p-2">
@@ -27,7 +28,7 @@
                         <div>
                             <label class="font-medium mb-8" for="data">Selecione a data e o horário desejado:</label>
                             <input id="data" class="mb-2 text-sm rounded-lg w-full p-2.5 bg-gray-100 border-blue-500"
-                                type="datetime-local" name="data" required autofocus />
+                                type="datetime-local" min="{{ now()->setTimezone('America/Sao_Paulo')->format('Y-m-d\TH:i') }}" name="data" required autofocus />
                         </div>
                         <div>
                             <button

@@ -69,7 +69,7 @@ class ObjetoController extends Controller
             'user_id' => $request->user()->id
         ]);
 
-        return redirect(route('objetos.index'));
+        return redirect(route('objetos.index'))->with('msg', 'Objeto cadastrado com sucesso.');
     }
 
     /**

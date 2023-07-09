@@ -77,7 +77,8 @@
                                                         {{ $agenda->objetos->nome }}
                                                     </th>
                                                     <td class="px-6 py-4">
-                                                        {{ $agenda->data }}
+                                                        {{ date('d/m/Y', strtotime($agenda->data)) }} -
+                                                        {{ date('H:i', strtotime($agenda->data)) }}
                                                     </td>
                                                     <td class="px-6 py-4">
                                                         {{ $agenda->doadores->name }}
@@ -245,7 +246,8 @@
                                                         {{ $agenda->objetos->nome }}
                                                     </th>
                                                     <td class="px-6 py-4">
-                                                        {{ $agenda->data }}
+                                                        {{ date('d/m/Y', strtotime($agenda->data)) }} -
+                                                        {{ date('H:i', strtotime($agenda->data)) }}
                                                     </td>
                                                     <td class="px-6 py-4">
                                                         {{ $agenda->doadores->name }}
