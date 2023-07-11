@@ -7,7 +7,6 @@
                 "Desapegue do que não precisa e abrace um futuro 
                 <span class="text-blue-600">sustentável</span>.
                 <br>
-                Doe seu lixo eletrônico no Desapeguei e faça a diferença para o planeta e para quem precisa."
             </h1>
         </div>
         
