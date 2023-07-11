@@ -98,7 +98,7 @@
                                 </svg>
                             </div>
                             <input type="text" name="search"
-                                class="bg-white border border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                                class="bg-white border border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-72 pl-10 p-2.5"
                                 placeholder="Busca do Desapeguei" required>
                         </div>
                     </form>

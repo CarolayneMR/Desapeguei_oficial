@@ -4,8 +4,7 @@
         <h1 class="flex flex-col text-center mb-2 pt-5 text-5xl font-extrabold dark:text-blue-900 drop-shadow-lg shadow-black">Bem-vindo ao Desapeguei!</h1>
         <div class="flex flex-col text-center pb-4 text-2xl font-semibold text-white drop-shadow-lg shadow-black">
             <h1>
-                "Desapegue do que não precisa e abrace um futuro 
-                <span class="text-blue-600">sustentável</span>.
+                Desapegue do que não precisa e abrace um futuro sustentável.
                 <br>
             </h1>
         </div>
