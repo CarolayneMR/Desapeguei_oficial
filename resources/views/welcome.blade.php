@@ -125,8 +125,8 @@
                 <p class="p-1 pl-3 m-2 text-gray-600">Esse sistema foi desenvolvido por:</p>
             </div>
 
-            <div class="px-10 py-4 grid gap-5">
-                <div class="grid grid-cols-5 gap-6 px-11">
+            <div class="px-8 py-2 grid gap-5">
+                <div class="grid grid-cols-5 gap-4 px-11">
                     <div class="pl-8">
                         <img class="h-auto max-w-full rounded-lg" src="https://octodex.github.com/images/kimonotocat.png" alt="">
                         <span class="font-bold flex flex-col text-center pl-8 text-xl bg-blue-400 border-b-4 border-black border-r-4">Carolayne Russel</span>
