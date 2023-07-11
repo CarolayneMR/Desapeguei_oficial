@@ -26,12 +26,14 @@
                             <template x-if="!editMode">
                                 <span>
                                     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                                        <img class="md:w-full" src="/img/objetos/{{ $objeto->imagem }}"
+                                        <img style="height: 400px; width:400px" class="md:w-full pt-2" src="/img/objetos/{{ $objeto->imagem }}"
                                             alt="Imagem do objeto" />
                                         </a>
                                         <div class="p-5">
-                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                                                {{ $objeto->nome }} </h5>
+                                            <h5 class="flex flex-col mb-2 text-2xl tracking-tight text-gray-900">
+                                            <div class="text-center"> {{ $objeto->nome }} </div>
+                                            <hr>
+                                            </h5>
                                             <p class="mb-3 font-normal text-gray-700">
                                                 Descrição: {{ $objeto->descricao }}
                                                 <br>
