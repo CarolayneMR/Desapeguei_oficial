@@ -35,11 +35,12 @@
                                             <hr>
                                             </h5>
                                             <p class="mb-3 font-normal text-gray-700">
-                                                Descrição: {{ $objeto->descricao }}
+                                                <b>Descrição:</b> {{ $objeto->descricao }}
                                                 <br>
-                                                CEP do doador: {{ $objeto->cep }}
+                                                <b>CEP do doador:</b> {{ $objeto->cep }}
                                                 <br>
-                                                Tipo do objeto: {{ $objeto->tipos->descricao }}
+                                                <b>Tipo do objeto:</b> {{ $objeto->tipos->descricao }}
+                                                <br>
                                             </p>
                                             <template x-if="!editMode">
                                                 <div class="cursor-pointer inline-flex items-center w-full px-24 py-2 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none"
