@@ -4,19 +4,22 @@
 O Desapeguei é um sistema web desenvolvido com o objetivo de facilitar as doações de eletrônicos entre os usuários. Ele foi criado para promover a reutilização e a sustentabilidade, permitindo que as pessoas compartilhem eletrônicos que não estão mais utilizando e que ainda estão em boas condições de funcionamento.
 
 ## Funcionalidades
-* Cadastro do usuário
+* Autenticação
+* Cadastro de usuário
+* Gerenciamento de perfil
 * Disponibilizar objeto para doação
-* Agendamento de doação
-* Busca e filtragem de eletrônicos
-* Avaliação de usuários
-* Chat para interação entre doador e recebedor
+* Agendar doação
+* Busca e filtragem de objetos
+* Tradução automática em Libras
 
-## Tecnologias utilizadas
-* HTML5
+## Tecnologias e ferramentas utilizadas
 * PHP
-* JavaScript
-* Laravel
-* Tailwind
+* Laravel Jetstream
+* MySQL
+* Livewire + Blade
+* Tailwind CSS
+* CSS
+* Figma
 
 ## Instalação
 **Pré-requisitos:** PHP 8*, Laravel 10, npm e composer. 
